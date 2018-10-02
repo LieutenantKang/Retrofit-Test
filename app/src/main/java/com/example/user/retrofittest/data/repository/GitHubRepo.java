@@ -1,4 +1,4 @@
-package com.example.user.retrofittest;
+package com.example.user.retrofittest.data.repository;
 
 public class GitHubRepo {
     private String name;

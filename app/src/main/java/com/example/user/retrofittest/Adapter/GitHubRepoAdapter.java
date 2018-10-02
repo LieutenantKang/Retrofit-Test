@@ -1,4 +1,4 @@
-package com.example.user.retrofittest;
+package com.example.user.retrofittest.Adapter;
 
 import android.content.Context;
 import android.view.LayoutInflater;
@@ -6,6 +6,9 @@ import android.view.View;
 import android.view.ViewGroup;
 import android.widget.ArrayAdapter;
 import android.widget.TextView;
+
+import com.example.user.retrofittest.R;
+import com.example.user.retrofittest.data.repository.GitHubRepo;
 
 import java.util.List;
 

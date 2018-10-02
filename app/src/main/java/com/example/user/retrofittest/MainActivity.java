@@ -5,13 +5,17 @@ import android.os.Bundle;
 import android.widget.ListView;
 import android.widget.Toast;
 
+import com.example.user.retrofittest.Adapter.GitHubRepoAdapter;
+import com.example.user.retrofittest.data.RetrofitClient;
+import com.example.user.retrofittest.data.repository.GitHubRepo;
+import com.example.user.retrofittest.data.service.GitHubClient;
+
 import java.util.List;
 
 import retrofit2.Call;
 import retrofit2.Callback;
 import retrofit2.Response;
 import retrofit2.Retrofit;
-import retrofit2.converter.gson.GsonConverterFactory;
 
 public class MainActivity extends AppCompatActivity {
 
@@ -24,15 +28,10 @@ public class MainActivity extends AppCompatActivity {
 
         listView = (ListView) findViewById(R.id.pagination_list);
 
-
-        Retrofit.Builder builder = new Retrofit.Builder()
-                .baseUrl("https://api.github.com/")
-                .addConverterFactory(GsonConverterFactory.create());
-
-        Retrofit retrofit = builder.build();
+        Retrofit retrofit = RetrofitClient.create();
 
         GitHubClient client = retrofit.create(GitHubClient.class);
-        Call<List<GitHubRepo>> call = client.reposForUser("fs-opensource");
+        Call<List<GitHubRepo>> call = client.reposForUser("LieutenantKang");
 
         call.enqueue(new Callback<List<GitHubRepo>>() {
             @Override
